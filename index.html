@@ -1,0 +1,288 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Julian Hall Spatial Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a survey sheet. Header block with a coordinate line, then one plate per project:
+   text column with readouts on the left, the actual map or chart on the right. */
+:root {
+  --paper: #eef2f1;
+  --panel: #f8faf9;
+  --ink: #12282c;
+  --ink-soft: #4b6166;
+  --rule: #c9d6d4;
+  --accent: #0b6f7a;
+  --accent-ink: #ffffff;
+  --signal: #b4570f;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0c1a1d; --panel: #122428; --ink: #e6eeed; --ink-soft: #9db3b6;
+    --rule: #25403f; --accent: #4cc3cf; --accent-ink: #06191c; --signal: #f0a060;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0c1a1d; --panel: #122428; --ink: #e6eeed; --ink-soft: #9db3b6;
+  --rule: #25403f; --accent: #4cc3cf; --accent-ink: #06191c; --signal: #f0a060;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 16px/1.6 var(--body);
+  padding-block: 0 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin-inline: auto; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* header */
+.top { position: relative; padding-block: 56px 40px; border-bottom: 1px solid var(--rule); overflow: hidden; }
+.contours { position: absolute; right: -40px; top: -20px; width: 520px; max-width: 80%; color: var(--accent); opacity: .22; pointer-events: none; }
+.coord { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 20px; }
+h1 { font: 700 clamp(2.4rem, 6vw, 4.2rem)/1 var(--display); letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 1.15rem; max-width: 46ch; margin: 0 0 24px; color: var(--ink); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; font: 400 13px/1.4 var(--mono); color: var(--ink-soft); }
+.facts b { color: var(--ink); font-weight: 500; }
+.index { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; position: relative; }
+.index a { display: inline-block; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--panel); color: var(--ink); text-decoration: none; font-size: 14px; }
+.index a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* plates */
+.plate { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; padding-block: 56px; border-bottom: 1px solid var(--rule); scroll-margin-top: 12px; }
+.plate:last-of-type { border-bottom: 0; }
+.kicker { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal); margin: 0 0 10px; }
+h2 { font: 700 clamp(1.5rem, 3vw, 2.1rem)/1.1 var(--display); letter-spacing: -.01em; margin: 0 0 16px; text-wrap: balance; }
+.text p { margin: 0 0 14px; max-width: 62ch; }
+.text h3 { font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 22px 0 8px; }
+.readouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 20px 0 8px; border-block: 1px solid var(--rule); }
+.readouts div { padding: 14px 12px 14px 0; }
+.readouts div + div { padding-left: 14px; border-left: 1px solid var(--rule); }
+.readouts dt { font: 700 clamp(1.3rem, 2.6vw, 1.8rem)/1.05 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; margin: 0; }
+.readouts dd { margin: 6px 0 0; font-size: 13px; line-height: 1.35; color: var(--ink-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { font: 400 12px/1 var(--mono); padding: 6px 8px; background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; color: var(--ink); }
+.limit { color: var(--ink-soft); font-size: 15px; }
+
+figure { margin: 0; min-width: 0; }
+.figs { display: grid; gap: 20px; align-content: start; min-width: 0; }
+.figs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.figs.two .wide { grid-column: 1 / -1; }
+.figs img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); border-radius: 4px; }
+figcaption { font: 400 12px/1.5 var(--mono); color: var(--ink-soft); margin-top: 8px; }
+
+footer { padding-block: 40px 0; border-top: 1px solid var(--rule); display: grid; gap: 8px; font-size: 15px; }
+footer .mail { font: 500 15px/1 var(--mono); user-select: all; }
+footer small { color: var(--ink-soft); }
+
+@media (max-width: 860px) {
+  .plate { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 40px; }
+  .top { padding-block: 40px 28px; }
+}
+@media (max-width: 480px) {
+  .readouts { grid-template-columns: minmax(0, 1fr); }
+  .readouts div, .readouts div + div { padding: 12px 0; border-left: 0; }
+  .readouts div + div { border-top: 1px solid var(--rule); }
+  .figs.two { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="contours" viewBox="0 0 520 380" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <path d="M40 300C80 220 150 240 210 190S330 90 420 130 500 250 470 330"/>
+      <path d="M90 310C120 250 170 262 220 220S320 140 394 168 456 258 434 322"/>
+      <path d="M140 316C160 280 196 286 236 252S308 196 366 208 414 266 398 314"/>
+      <path d="M190 320C204 300 226 304 252 284S300 250 336 254 366 280 358 312"/>
+    </svg>
+    <p class="coord">34.40°S 150.88°E &nbsp;·&nbsp; Keiraville, NSW</p>
+    <h1>Julian Hall</h1>
+    <p class="lede">Spatial and environmental analysis. Remote sensing, coastal and marine habitat modelling, and bushfire mapping, built in ArcGIS Pro and QGIS.</p>
+    <ul class="facts">
+      <li><b>Bachelor of Geography</b>, University of Wollongong, 2025</li>
+      <li><b>Tools</b> ArcGIS Pro, QGIS, GeoDa, Excel</li>
+      <li><b>Open to</b> relocating and contract roles</li>
+    </ul>
+    <ul class="index">
+      <li><a href="#perkins">Perkins Beach</a></li>
+      <li><a href="#five-islands">Five Islands zoning</a></li>
+      <li><a href="#big-island">Big Island vegetation</a></li>
+      <li><a href="#antarctica">Antarctica ASPA 131</a></li>
+      <li><a href="#fire">NSW fire severity</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- Perkins Beach -->
+    <article class="plate" id="perkins">
+      <div class="text">
+        <p class="kicker">Coastal change · Port Kembla</p>
+        <h2>How much of Perkins Beach's dune system has been lost?</h2>
+        <p>Compared historical aerial photos, photogrammetry spot heights and modern LiDAR along 69 transects to measure how far the dunes have retreated and how much sand has gone.</p>
+        <dl class="readouts">
+          <div><dt>236 m</dt><dd>mean loss of dune width</dd></div>
+          <div><dt>~750 m³</dt><dd>mean sand volume lost per transect</dd></div>
+          <div><dt>3,782 m³</dt><dd>largest loss, at the northern end</dd></div>
+        </dl>
+        <h3>Method</h3>
+        <p>Built a 1961 TIN from 2,496 photogrammetry spot heights and a 2013 TIN from 5 m LiDAR. Buffered each transect and ran Polygon Volume on both surfaces, then differenced the volumes in Excel. Measured dune width separately from the 1961 aerial mosaic and 2016 WorldView-2 imagery, and compared the two approaches.</p>
+        <h3>Finding</h3>
+        <p>Central transects narrowed by more than 400 m, with a maximum of 548 m at Transect 61. Width loss and volume loss rose together, but not in a straight line. Transect 12 lost a lot of width and little volume, which came down to digitising choices and DEM interpolation.</p>
+        <h3>Tools</h3>
+        <ul class="chips"><li>ArcGIS Pro</li><li>TIN and DEM</li><li>LiDAR</li><li>Photogrammetry</li><li>Excel</li></ul>
+        <h3>Limits</h3>
+        <p class="limit">Vegetation lines were hard to digitise on the 1961 photos, and interpolating the 1961 surface smooths small dune features.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <img src="img/perkins-dunes.jpg" alt="Four panels of Perkins Beach: 1961 aerial mosaic, 2016 satellite image, 1961 elevation and 2013 LiDAR elevation" width="450" height="490" loading="lazy">
+          <figcaption>Top: 1961 aerial mosaic and 2016 WorldView-2 image. Bottom: 1961 elevation from spot heights and 2013 LiDAR elevation with transects.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/perkins-scatter.jpg" alt="Scatterplot of planimetric dune width change against volumetric change across 69 transects" width="522" height="302" loading="lazy">
+          <figcaption>Width change (m) against volume change (m³) for the 69 transects.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Five Islands -->
+    <article class="plate" id="five-islands">
+      <div class="text">
+        <p class="kicker">Marine conservation planning · Five Islands Nature Reserve</p>
+        <h2>Where should the sanctuary zones go around Five Islands?</h2>
+        <p>Modelled kelp, seabed geomorphology and Eastern Rock Lobster habitat to recommend marine reserve zoning for the NSW Office of Environment and Heritage and the Marine Estate Management Authority.</p>
+        <dl class="readouts">
+          <div><dt>3</dt><dd>habitat layers overlaid: kelp, geomorphology, lobster</dd></div>
+          <div><dt>2</dt><dd>sanctuary zones recommended</dd></div>
+          <div><dt>80 to 100%</dt><dd>predicted kelp cover on shallow reefs</dd></div>
+        </dl>
+        <h3>Method</h3>
+        <p>Ran an OLS regression in GeoDa on ten physical variables, including bathymetry, slope, rugosity, BPI and WorldView-2 bands, then applied the coefficients with Raster Calculator to produce a 0 to 100% kelp suitability surface. Classified seabed types with an unsupervised ISO Cluster. Reclassified bathymetry to the lobster's preferred depth of 8 to 13 m. Overlaid everything and digitised the zones.</p>
+        <h3>Finding</h3>
+        <p>The best habitat sits around Big Island and the northern slopes of Flinders Islet. Two large sanctuary zones there, inside a surrounding general use zone, protect reef, kelp and lobster habitat and stay simple to manage and enforce.</p>
+        <h3>Tools</h3>
+        <ul class="chips"><li>ArcGIS Pro</li><li>GeoDa</li><li>OLS regression</li><li>ISO Cluster</li><li>Raster Calculator</li><li>Bathymetry</li></ul>
+        <h3>Limits</h3>
+        <p class="limit">The kelp model leaned on few video ground reference points, so field checks such as dive transects would come next.</p>
+      </div>
+      <div class="figs two">
+        <figure>
+          <img src="img/kelp.jpg" alt="Map of predicted kelp cover around the Five Islands Reserve, with high cover on reefs near Big Island and Flinders Islet" width="625" height="620" loading="lazy">
+          <figcaption>Predicted kelp cover.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/zoning.jpg" alt="Map of proposed protected zones and general use zone off Port Kembla" width="535" height="600" loading="lazy">
+          <figcaption>Proposed sanctuary and general use zones.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Big Island -->
+    <article class="plate" id="big-island">
+      <div class="text">
+        <p class="kicker">Drone imagery classification · Big Island</p>
+        <h2>What invasive vegetation covers Big Island?</h2>
+        <p>Classified four band drone imagery into the weeds and surfaces that matter for invasive species management, then tested how far the map could be trusted.</p>
+        <dl class="readouts">
+          <div><dt>77.61%</dt><dd>overall accuracy</dd></div>
+          <div><dt>94.12%</dt><dd>user accuracy, Kikuyu Grass</dd></div>
+          <div><dt>24.24%</dt><dd>user accuracy, Coastal Morning Glory</dd></div>
+        </dl>
+        <h3>Method</h3>
+        <p>Supervised maximum likelihood classification in ArcGIS Pro using 10 to 20 training polygons per class for Kikuyu Grass, Coastal Morning Glory, Mirror Bush, bare ground and rocky coastline. Added subclasses to handle the different tones of rock and water. Chose supervised over unsupervised so that field data, not whitewash or shadow, drove the classes.</p>
+        <h3>Finding</h3>
+        <p>Weeds dominate the island. Rock (100%) and bare ground (83.33%) were mapped well. Kikuyu and Morning Glory were confused with each other, so the map cannot say which one covers more area.</p>
+        <h3>Tools</h3>
+        <ul class="chips"><li>ArcGIS Pro</li><li>Maximum likelihood</li><li>Training samples</li><li>Error matrix</li></ul>
+        <h3>Limits</h3>
+        <p class="limit">Similar spectra, limited bands, shadows and mixed pixels at edges all lowered accuracy.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <img src="img/bigisland.jpg" alt="Vegetation and land cover classification map of Big Island with legend" width="1127" height="766" loading="lazy">
+          <figcaption>Big Island vegetation and land cover map from supervised classification of drone imagery.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Antarctica -->
+    <article class="plate" id="antarctica">
+      <div class="text">
+        <p class="kicker">Polar remote sensing · McMurdo Dry Valleys</p>
+        <h2>Can vegetation indices find moss in an Antarctic protected area?</h2>
+        <p>Group project annotating UAV multispectral imagery of Antarctic Specially Protected Area 131 to create training data for deep learning models, linked to the SAEF and Antarctic Science Platform monitoring programs. I wrote the individual discussion that tested the indices against the annotations.</p>
+        <dl class="readouts">
+          <div><dt>20</dt><dd>fixed 1 m² quadrats annotated across student teams</dd></div>
+          <div><dt>93.64%</dt><dd>of annotated area was rock and soil</dd></div>
+          <div><dt>5.79%</dt><dd>annotated area was moss</dd></div>
+        </dl>
+        <h3>Method</h3>
+        <p>Calculated NDVI, GNDVI, MSAVI, TVI, DVI and LCI in the QGIS Raster Calculator from five band imagery. Digitised class polygons with a confidence score, guided by RTK GNSS points, quadrat photos and a Spectral Angle Mapper layer.</p>
+        <h3>Finding</h3>
+        <p>NDVI missed lichen, which looks bright in visible light but weak in near infrared. MSAVI separated moss from bright soil more clearly. The best workflow combined indices, field photos and semi automated help from SAM, with a human checking the result.</p>
+        <h3>Tools</h3>
+        <ul class="chips"><li>QGIS 3.40</li><li>ArcGIS Pro</li><li>Multispectral UAV imagery</li><li>RTK GNSS</li><li>Vegetation indices</li></ul>
+        <h3>Limits</h3>
+        <p class="limit">Only 0.18% of the area was annotated and there was no comparison across seasons.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <img src="img/antarctica-indices.jpg" alt="Four panels showing the original drone image and MSAVI, GNDVI and NDVI maps of a quadrat in ASPA 131" width="700" height="900" loading="lazy">
+          <figcaption>Original image with MSAVI, GNDVI and NDVI. Higher values (green to red) mark vegetation.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <!-- Fire -->
+    <article class="plate" id="fire">
+      <div class="text">
+        <p class="kicker">Bushfire analysis · NSW east coast, 2019 to 2020</p>
+        <h2>What shaped fire severity in the Black Summer?</h2>
+        <p>Individual report from the Fire Module, testing how rainfall, vegetation type, aspect and time since the last fire relate to burn severity across the NSW east coast.</p>
+        <dl class="readouts">
+          <div><dt>26% vs 17%</dt><dd>extreme severity share on flat vs south facing land</dd></div>
+          <div><dt>0.075</dt><dd>correlation between time since last fire and severity</dd></div>
+          <div><dt>2016 to 2019</dt><dd>rainfall anomaly compared with the fires</dd></div>
+        </dl>
+        <h3>Method</h3>
+        <p>Layered fire severity with rainfall anomaly maps in ArcGIS, joined severity to vegetation types, used a DEM for elevation and aspect, and pulled time since last fire from raster band statistics. Charts and tables were made in Excel.</p>
+        <h3>Finding</h3>
+        <p>Fires burned most where rainfall had fallen furthest below average. Heathlands showed the highest share of extreme severity. Flat land burned hardest. Time since the last fire told us very little.</p>
+        <h3>Tools</h3>
+        <ul class="chips"><li>ArcGIS</li><li>DEM and aspect</li><li>Raster statistics</li><li>Excel</li></ul>
+      </div>
+      <div class="figs two">
+        <figure class="wide">
+          <img src="img/fire-rain.jpg" alt="Four panels: fire severity, and rainfall anomaly for 2016 to 2017, 2017 to 2018 and 2018 to 2019, along the NSW east coast" width="338" height="528" loading="lazy" style="max-width: 360px;">
+          <figcaption>A: fire severity. B to D: rainfall anomaly layers from 2016 to 2019 under the fire footprint.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/fire-veg.jpg" alt="Bar chart of area burnt by severity class for each vegetation type" width="800" height="480" loading="lazy">
+          <figcaption>Area burnt by severity, by vegetation type.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/fire-aspect.jpg" alt="Bar chart of percentage burnt by severity class for each landscape aspect" width="800" height="480" loading="lazy">
+          <figcaption>Percentage burnt by severity, by aspect.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <strong>Julian Hall</strong>
+    <span class="mail">julian.pajkovic@gmail.com</span>
+    <small>Keiraville NSW. Available to relocate. Reports and full methods on request.</small>
+  </footer>
+</div>
+
+</body></html>
